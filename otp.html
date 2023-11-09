@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTP Verification Form</title>
+    <link rel="stylesheet" href="otp.css" />
+    <!-- Boxicons CSS -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <!--<script>
+      function verifyOTP() {
+          const enteredOTP = document.getElementById("otpInput").value;
+          const userEmail = "mahajanchinmayshekhar24@gmail.com"; // Replace with the user's email
+
+          // Make a request to your server to fetch the actual OTP based on the user's email
+          fetch(`/api/get-otp?email=${userEmail}`)
+              .then(response => response.json())
+              .then(data => {
+                  const actualOTP = data.otp; // Assuming the server returns OTP as a JSON response
+
+                  if (enteredOTP === actualOTP) {
+                      alert("OTP is verified. Email is verified.");
+                      // You can redirect the user to a success page or perform other actions here.
+                  } else {
+                      alert("Invalid OTP. Please enter a valid OTP.");
+                  }
+              })
+              .catch(error => {
+                  console.error("Error fetching OTP: ", error);
+                  alert("Failed to verify OTP. Please try again later.");
+              });
+      }
+  </script>-->
+    
+
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <i class="bx bxs-check-shield"></i>
+      </header>
+      <h4>Enter OTP Code</h4>
+      <form action="#">
+        <div class="input-field">
+          <input type="text" id="otp1" maxlength="1" />
+          <input type="text" id="otp2" maxlength="1" />
+          <input type="text" id="otp3" maxlength="1" />
+          <input type="text" id="otp4" maxlength="1" />
+          <input type="text" id="otp5" maxlength="1" />
+          <input type="text" id="otp6" maxlength="1" />
+        </div>
+        <button id="verify-button">Verify OTP</button>
+      </form>
+    </div>
+  </body>
+</html>

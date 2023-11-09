@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="form.css">
+  <script src="https://kit.fontawesome.com/8da8ffa530.js" crossorigin="anonymous"></script>
+  <script src="validation.js" defer ></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+  
+  
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" ></script>
+  <script src="form.js" defer></script>
+  
+  
+</head>
+
+<body>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <header>
+    <div class="head">
+    <img src="VJTI_LOGO.png" id="photo" alt="Profile photo" height="5%" width="5%">
+  
+    <h1 id="c1">Candidate Registartion</h1>
+    <h3 id="c2">Fill the below details to apply for the Course</h3>
+    </div>
+    
+    
+  </header>
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="form.html">Registration Form</a></li>
+      <li><a href="config/dashboard.php">Data Analytics Dashboard</a></li>
+      <li><a href="WIM_Profile/index.html">My Profile</a></li>
+      <li><a href="config/display.php">Registered Candidate's Data</a></li>
+    </ul>
+  </nav>
+  <form id="regForm" action="formInsert.php" method="post">
+
+
+    <!-- One "tab" for each step in the form: -->
+    <div class="tab">
+      <h1>Personal Details</h1>
+      <div class="input-icons">
+        First Name:
+        <p><i class="fa-solid fa-user"></i><input type="text" placeholder="First name..." oninput="this.className = ''"
+            name="fname" id="fname"></p>
+
+        Last Name :
+        <p><i class="fa-solid fa-user"></i><input type="text" placeholder="Last name..." oninput="this.className = ''"
+            name="lname" id="lname" required></p>
+            E-mail:
+            <p><i class="fa-solid fa-envelope"></i><input placeholder="E-mail..." oninput="this.className = ''" name="email"
+              type="email" class="email" id="email" required></p>
+          <button id="email-verify-button" type="button" onclick="sendOTP()">Verify</button>
+          <br>
+      
+          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+          <script>
+              function sendOTP() {
+                  const emailInput = $("#email").val();
+      
+                  // Check if the email input is valid
+                  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                  if (!regex.test(emailInput)) {
+                      alert("Invalid email address");
+                      return;
+                  }
+      
+                  // Send a request to the RapidAPI service
+                  const settings = {
+                      async: true,
+                      crossDomain: true,
+                      url: 'https://email-authentication-system.p.rapidapi.com/?recipient=' + emailInput + '&app=Login%20System',
+                      method: 'GET',
+                      headers: {
+                          'X-RapidAPI-Key': '4ba6d0fe43msh039a4977aa8c76fp13b079jsn7b2f0d218283',
+                          'X-RapidAPI-Host': 'email-authentication-system.p.rapidapi.com'
+                      }
+                  };
+      
+                  $.ajax(settings).done(function (response) {
+                      console.log(response);
+      
+                      // Handle the response here, e.g., display a success message
+                      // or trigger the OTP verification process.
+                      alert("OTP sent to your email.");
+                      // Redirect to an OTP verification page
+                      window.location.href = 'otp.html';
+                  }).fail(function (xhr, status, error) {
+                      console.error(error);
+                      alert("Failed to send OTP. Please try again later.");
+                  });
+              }
+          </script>
+            
+        Phone No.:
+        <p><i class="fa-solid fa-phone"></i><input placeholder="Phone..." oninput="this.className = ''" name="phone" id="pno"
+            required></p>
+        <button onclick="window.location.href = 'otp.html'" type="button">Verify</button>
+        <br>
+        Address:
+        <p><i class="fa-solid fa-address-book"></i><input placeholder="Address..." oninput="this.className = ''"
+            name="address" required></p>
+      </div>
+    </div>
+
+    <div class="tab">
+      <h1> Details</h1>
+      <div class="input-icons">
+        Birth Date :
+        <p><i class="fa-solid fa-calendar-days"></i><input type="date" placeholder="dd-mm-yyyy" oninput="this.className = ''" name="bdate" id="bdate" required></p>
+        <label for="Nationality">Nationality : </label>
+        <select id="na" name="nationality" required>
+          
+          <option selected hidden value="">Select Nationality</option>
+          <option value="Indian">Indian</option>
+          <option value="American">American</option>
+          <option value="Nepal">Nepal</option>
+        </select>
+        
+        <label for="Gender">Gender : </label>
+        <select id="Gender" name="gender" required>
+          
+          <option selected hidden value="">Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+        <br>
+        Aadhar No.:
+        <p><i class="fa-solid fa-address-card"></i><input placeholder="Enter Aadhar No." oninput="this.className = ''" name="aadhar" id="add" required></p>
+      </div>
+    </div>
+
+    <div class="tab">
+      <h1>Qualification</h1>
+      <div class="input-icons">
+        <label for="Highest Degree">Highest Degree : </label>
+        <select id="deg" name="degree" required>
+          
+          <option selected hidden value="">Select Degree</option>
+          <option value="B.tech.">B.tech.</option>
+          <option value="B.E.">B.E.</option>
+          <option value="M.tech">M.tech</option>
+          <option value="M.E.">M.E.</option>
+        </select>
+        <br>
+        <label for="Course Name">Course Name : </label>
+        <select id="cu" name="course" required>
+          
+          <option selected hidden value="">Select Degree</option>
+          <option value="Information Technology">Information Technology</option>
+          <option value="Computer Science">Computer Science</option>
+          <option value="Mechanicle">Mechanicle</option>
+          <option value="Extc">Extc</option>
+          <option value="Civil">Civil</option>
+          <option value="Electricle">Electricle</option>
+        </select>
+        <br>
+      
+      
+      CGPA/CPI:
+      <p ><i class="fa-solid fa-square-poll-vertical"></i><input placeholder="Enter CGPA/CPI" type="text" oninput="this.className = ''" name="CPI" id="cpi" required></p>
+      
+      <button type="submit" onclick="window.location.href='pdf.html';">Generate PDF</button>
+      </div>
+    </div>
+
+    <div style="overflow:auto;">
+      <div style="float:right;">
+        <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+        <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+      </div>
+    </div>
+
+    <!-- Circles which indicates the steps of the form: -->
+    <div style="text-align:center;margin-top:40px;">
+      <span class="step"></span>
+      <span class="step"></span>
+      <span class="step"></span>
+    </div>
+  </form>
+
+  <script>
+    
+    jQuery('#regForm').validate({
+  rules :{
+    fname:'required',
+    email:{
+      required:true,
+      email:true
+    },
+    lname:{
+      required:true
+    },
+    address:"required",
+    bdate:"required",
+    gender:"required",
+    aadhar:"required",
+    degree:"required",
+    course:"required",
+    CPI:"required"
+  },messages:{
+    fname:{
+      required:'Please enter your first  name'
+    },
+    lname:{
+      required:"Please enter your last name"
+    },
+    email:{
+    required:"Please enter email address",
+    email:"Please enter valid email address"
+    },
+    address:{
+      required:"Please enter your address"
+    },
+    degree:{
+      required:"Please enter your degree"
+    },
+    bdate:{
+      required:"Please enter your bdate"
+    },
+    gender:{
+      required:"Please enter gender"
+    },
+    CPI:{
+      required:"Please enter your CPI "
+    },
+    course:{
+      required:"Please enter your course"
+    },
+    
+    
+  }
+});
+  </script>
+  <script>
+    const form = document.getElementById('regForm');
+    const fname = document.getElementById('fname');
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      const firstNameValue = fname.value;
+      const lastNameValue = lname.value;
+      const emailVal = email.value;
+      const pnoVal = pno.value;
+      const addVal = add.value;
+      const bdateVal = bdate.value;
+      const naVal = na.value;
+      const GenderVal = Gender.value;
+      const degVal = deg.value;
+      const cuVal = cu.value;
+      const cpiVal = cpi.value;
+
+      localStorage.setItem('fname',firstNameValue);
+      localStorage.setItem('lname',lastNameValue);
+      localStorage.setItem('email',emailVal);
+      localStorage.setItem('pno',pnoVal);
+      localStorage.setItem('add',addVal);
+      localStorage.setItem('bdate',bdateVal);
+      localStorage.setItem('na',naVal);
+      localStorage.setItem('Gender',GenderVal);
+      localStorage.setItem('deg',degVal);
+      localStorage.setItem('cu',cuVal);
+      localStorage.setItem('cpi',cpiVal);
+
+      window.location.href='pdf.html';
+
+    })
+  </script>
+  
+  
+  
+<script type="text/javascript">        
+  $(document).ready(function () {        
+      
+  $(".email").change(function () {    
+  var inputvalues = $(this).val();    
+  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;    
+  if(!regex.test(inputvalues)){    
+  alert("invalid email id");    
+  return regex.test(inputvalues);    
+  }    
+  });    
+      
+   });            
+  </script>            
+            
+  
+  
+</body>
+
+
+
+</html>

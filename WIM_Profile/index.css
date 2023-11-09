@@ -1,0 +1,131 @@
+body{
+    background: #a19c9c;
+}
+
+#Info{
+    list-style-type: none;
+    display:inline-block;
+    margin-top: auto;
+    color: white;
+}
+#photo{
+    display: inline-block;
+    margin-left: 10%;
+    margin-top: auto;
+    border-radius: 60%;
+}
+header{
+    background-color: #333;
+}
+#VJTI_LOGO{
+    display: inline-block;
+    background-color: white;
+    padding-left:5%;
+}
+div{
+        background-color: #333;
+        color: white;
+}
+aside{
+    display: inline-block;
+    width: 30%;
+    margin: 1%;
+    margin-top: 0%;
+    margin-left: 0%;
+    float: left;
+
+}
+
+#Languages{
+    background: #333;
+    color: white;
+    width: 100%;
+}
+
+#Skills{
+    width: 100%;
+    background: #333;
+    color: white;
+}
+
+#TFD{
+    width: 100%;
+    background: #333;
+    color: white;
+}
+
+section{
+    display: inline-block;
+    margin-top: 0%;
+    width: 69%;
+}
+
+#Education{
+    background: #333;
+    color: white;
+    width: 100%;
+}
+
+#Acheivements{
+    display: inline-block;
+    background: #333;
+    margin-top: 1%;
+    width: 100%;
+    color: white;
+}
+
+#Projects{
+    display: inline-block;
+    background: #333;
+    margin-top: 1%;
+    width: 100%;
+    color: white;
+}
+
+#Position{
+    display: inline-block;
+    background: #333;
+    margin-top: 1%;
+    width: 100%;
+    color: white;
+}
+
+progress {
+    accent-color: grey;
+ }
+
+ footer{
+    background: #333;
+    color: white;
+ }
+ nav {
+    background-color: #4d4c4c; /* Change the background color to a suitable color */
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li:last-child {
+    margin-right: 0;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  nav a:hover {
+    color: #FF5733;
+  }

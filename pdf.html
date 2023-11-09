@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="pdf.js"></script>
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <style>
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #0073e6;
+            color: #fff;
+        }
+        
+        /* Styles for print media */
+        @media print {
+            body {
+                background-color: #fff;
+            }
+            
+            header, section, .container, div, div span, button {
+                background-color: #fff !important;
+                color: #000 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section id="pdf" style="background-color: #E0F2F1; padding: 3% 0; text-align: center; font-size: 18px;">
+        <header style="background-color: #4CAF50; color: #fff; text-align: center; padding: 10px 0; font-size: 24px;">
+            Candidate Registration Receipt
+        </header>
+        <div  class="container" style="max-width: 600px; margin: 20px auto; background-color: #fff; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+            <div style="margin-bottom: 10px; padding-left: 10px; text-align: left;">
+                <span style="font-weight: bold; margin-right: 10px;">First Name:</span>
+                <span id="fname"></span>
+            </div>
+            <div style="margin-bottom: 10px; padding-left: 10px; text-align: left;">
+                <span style="font-weight: bold; margin-right: 10px;">Last Name:</span>
+                <span id="lname"></span>
+            </div>
+            <div style="margin-bottom: 10px; padding-left: 10px; text-align: left;">
+                <span style="font-weight: bold; margin-right: 10px;">Email:</span>
+                <span id="email"></span>
+            </div>
+            <div style="margin-bottom: 10px; padding-left: 10px; text-align: left;">
+                <span style="font-weight: bold; margin-right: 10px;">Phone Number:</span>
+                <span id="pno"></span>
+            </div>
+            <div style="margin-bottom: 10px; padding-left: 10px; text-align: left;">
+                <span style="font-weight: bold; margin-right: 10px;">Address:</span>
+                <span id="add"></span>
+            </div>
+            <div style="margin-bottom: 10px; padding-left: 10px; text-align: left;">
+                <span style="font-weight: bold; margin-right: 10px;">Birth Date:</span>
+                <span id="bdate"></span>
+            </div>
+            <div style="margin-bottom: 10px; padding-left: 10px; text-align: left;">
+                <span style="font-weight: bold; margin-right: 10px;">Nationality:</span>
+                <span id="na"></span>
+            </div>
+            <div style="margin-bottom: 10px; padding-left: 10px; text-align: left;">
+                <span style="font-weight: bold; margin-right: 10px;">Gender:</span>
+                <span id="Gender"></span>
+            </div>
+            <div style="margin-bottom: 10px; padding-left: 10px; text-align: left;">
+                <span style="font-weight: bold; margin-right: 10px;">Degree:</span>
+                <span id="deg"></span>
+            </div>
+            <div style="margin-bottom: 10px; padding-left: 10px; text-align: left;">
+                <span style="font-weight: bold; margin-right: 10px;">Course Name:</span>
+                <span id="cu"></span>
+            </div>
+            <div style="margin-bottom: 10px; padding-left: 10px; text-align: left;">
+                <span style="font-weight: bold; margin-right: 10px;">CGPA/CPI:</span>
+                <span id="cpi"></span>
+            </div>
+            <br>
+            <h2 style="text-align: center;">Thanks for registering with our Institute</h2>
+            <h4 style="text-align: center;">Stay updated for further notifications</h4>
+        </div>
+        
+    </section>
+    <button onclick="generatePDF()" style="display: block; margin: 20px auto; padding: 10px 20px; background-color: #333;; color: #fff; border: none; cursor: pointer;">Download</button>
+    <script>
+        const  fname = localStorage.getItem('fname');
+        const  lname = localStorage.getItem('lname');
+        const  email = localStorage.getItem('email');
+        const  pno = localStorage.getItem('pno');
+        const  add = localStorage.getItem('add');
+        const  bdate = localStorage.getItem('bdate');
+        const  na = localStorage.getItem('na');
+        const  Gender = localStorage.getItem('Gender');
+        const  deg = localStorage.getItem('deg');
+        const  cu = localStorage.getItem('cu');
+        const  cpi = localStorage.getItem('cpi');
+
+        document.getElementById('fname').textContent = fname;
+        document.getElementById('lname').textContent = lname;
+        document.getElementById('email').textContent = email;
+        document.getElementById('pno').textContent = pno;
+        document.getElementById('add').textContent = add;
+        document.getElementById('bdate').textContent = bdate;
+        document.getElementById('na').textContent = na;
+        document.getElementById('Gender').textContent = Gender;
+        document.getElementById('deg').textContent = deg;
+        document.getElementById('cu').textContent = cu;
+        document.getElementById('cpi').textContent = cpi;
+        
+       
+    </script>
+</body>
+</html>

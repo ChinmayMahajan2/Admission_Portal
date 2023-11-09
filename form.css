@@ -1,0 +1,233 @@
+/*header{
+    padding: 50px auto;
+    background-color: #04AA6D;
+  }*/
+  header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 24px;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  /* Style the form container */
+.form-container {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+  }
+
+  .tab {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /*#regForm {
+    background-color: #ffffff;
+    margin: 10px auto;
+    font-family: Raleway;
+    padding: 20px;
+    width: 90%;
+    min-width: 300px;
+  }*/
+  
+  /*h1 {
+    text-align: center;  
+  }*/
+  
+  /* Style form labels */
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+input,select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  button:hover {
+    background-color: #e78310;
+  }
+
+  input,select {
+    padding: 10px;
+    padding-left: 40px;
+    width: 100%;
+    font-size: 17px;
+    font-family: Raleway;
+    border: 1px solid #aaaaaa;
+  }
+  
+  /* Mark input boxes that gets an error on validation: */
+  input.invalid {
+  
+    background-color: #ffdddd;
+  }
+  
+  /* Hide all steps by default: */
+  .tab {
+    display: none;
+  }
+  
+  button {
+    background-color: #333;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-family: Raleway;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  #prevBtn {
+    background-color: #bbbbbb;
+  }
+  
+  /* Make circles that indicate the steps of the form: */
+  .step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;  
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+  }
+  
+  .step.active {
+    opacity: 1;
+  }
+  
+  /* Mark the steps that are finished and valid: */
+  .step.finish {
+    background-color: #333;;
+  }
+  
+  
+  
+  .inline{
+  max-width:400px;
+  margin:auto;
+  }
+  .input-icons i {
+  padding: 10px;
+  position: absolute;
+  
+  }
+  
+  .input-icons {
+  width: 100%;
+  margin-bottom: 10px;
+  }
+  
+  .icon {
+  padding: 40px;
+  min-width: 40px;
+  text-align: center;
+  }
+  
+  #photo{
+    display: flex;
+    margin-left: 10%;
+    margin-top: auto;
+    border-radius: 60%;
+    background-color: white;
+    }
+  
+  .head{
+  display: flex;
+  }
+  
+  #c1{
+    text-align: center;
+    padding-left: 350px;
+    display: flex;
+    float: left;
+    }
+    #c2{
+    display: inline-block;
+    text-align: center;
+    padding-left: 560px ;
+    padding-top: 50px;
+    position: absolute;
+    
+    
+    }
+  
+  .error{
+    color: red;
+    width: 100%;
+    margin-top: 0px;
+    padding-left: 0px;
+  }
+  nav {
+  background-color: #4d4c4c; /* Change the background color to a suitable color */
+  text-align: center;
+  padding: 10px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+nav a:hover {
+  color: #FF5733;
+}
